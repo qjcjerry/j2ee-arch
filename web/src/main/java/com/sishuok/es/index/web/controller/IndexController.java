@@ -43,7 +43,7 @@ public class IndexController {
 
     @RequestMapping(value = {"/{index:index;?.*}"}) //spring3.2.2 bug see  http://jinnianshilongnian.iteye.com/blog/1831408
     public String index(@CurrentUser User user, Model model) {
-
+//切到cache resourcemenucacheaspect
         List<Menu> menus = resourceService.findMenus(user);
         model.addAttribute("menus", menus);
 
@@ -52,7 +52,6 @@ public class IndexController {
         return "admin/index/index";
     }
 
-
     @RequestMapping(value = "/welcome")
     public String welcome(@CurrentUser User loginUser, Model model) {
 
@@ -60,7 +59,7 @@ public class IndexController {
         Long messageUnreadCount = messageService.countUnread(loginUser.getId());
         model.addAttribute("messageUnreadCount", messageUnreadCount);
 
-        //最近3天的日历
+        //最近3 天的日历
         model.addAttribute("calendarCount", calendarService.countRecentlyCalendar(loginUser.getId(), 2));
 
         return "admin/index/welcome";
