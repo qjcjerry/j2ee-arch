@@ -15,5 +15,5 @@ import com.sishuok.es.maintain.task.entity.DynamicTask;
  * <p>Version: 1.0
  */
 public interface DynamicTaskRepository extends BaseRepository<DynamicTask, Long> {
-    Icon findByIdentity(String identity);
+   // Icon findByIdentity(String identity);
 }
